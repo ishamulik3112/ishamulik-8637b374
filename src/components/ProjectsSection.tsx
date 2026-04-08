@@ -1,9 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Github } from "lucide-react";
+import geminiImg from "@/assets/project-gemini.jpg";
+import ecommerceImg from "@/assets/project-ecommerce.jpg";
+import hotelImg from "@/assets/project-hotel.jpg";
 
 const projects = [
   {
+    image: geminiImg,
     title: "Gemini Clone",
     subtitle: "Generative AI Web Application",
     description:
@@ -11,6 +15,7 @@ const projects = [
     tech: ["React.js", "JavaScript", "HTML5", "CSS3", "Gemini API"],
   },
   {
+    image: ecommerceImg,
     title: "E-Commerce Website",
     subtitle: "React Frontend",
     description:
@@ -18,6 +23,7 @@ const projects = [
     tech: ["React.js", "JavaScript", "React Router", "CSS3"],
   },
   {
+    image: hotelImg,
     title: "Hotel Booking App",
     subtitle: "Full Stack Web Application",
     description:
@@ -51,10 +57,15 @@ const ProjectsSection = () => {
               transition={{ delay: i * 0.15, duration: 0.6 }}
               className="glass-card glow-border rounded-xl overflow-hidden group hover:scale-[1.02] transition-transform duration-300"
             >
-              <div className="h-48 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 flex items-center justify-center">
-                <span className="text-4xl font-bold font-heading text-gradient opacity-30 group-hover:opacity-60 transition-opacity">
-                  {project.title.charAt(0)}
-                </span>
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  loading="lazy"
+                  width={800}
+                  height={512}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold font-heading text-foreground mb-1">{project.title}</h3>
