@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import profileImg from "@/assets/profile.jpg";
 
 const HeroSection = () => {
   return (
@@ -11,13 +10,13 @@ const HeroSection = () => {
         <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-accent/10 rounded-full animate-glow-pulse" style={{ animationDelay: "3s" }} />
       </div>
 
-      <div className="section-container relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="section-container relative z-10 flex flex-col items-center">
         {/* Text content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 text-center lg:text-left"
+          className="flex-1 text-center"
         >
           <motion.p
             initial={{ opacity: 0 }}
@@ -48,7 +47,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="flex flex-wrap gap-4 justify-center lg:justify-start"
+            className="flex flex-wrap gap-4 justify-center"
           >
             <a
               href="#projects"
@@ -63,27 +62,6 @@ const HeroSection = () => {
               Contact Me
             </a>
           </motion.div>
-        </motion.div>
-
-        {/* Profile image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="relative"
-        >
-          <div className="animate-float">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full glow-border">
-              <img
-                src={profileImg}
-                alt="Isha Mulik"
-                width={512}
-                height={512}
-                className="w-full h-full object-cover rounded-full"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
