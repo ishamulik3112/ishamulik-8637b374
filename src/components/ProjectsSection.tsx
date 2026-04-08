@@ -1,6 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Github } from "lucide-react";
+import geminiImg from "@/assets/project-gemini.jpg";
+import ecommerceImg from "@/assets/project-ecommerce.jpg";
+import hotelImg from "@/assets/project-hotel.jpg";
 
 const projects = [
   {
