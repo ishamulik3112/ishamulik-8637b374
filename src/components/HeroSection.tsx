@@ -63,5 +63,9 @@ const HeroSection = () => {
             </a>
           </motion.div>
         </motion.div>
+      </div>
+    </section>
+  );
+};
 
 export default HeroSection;
