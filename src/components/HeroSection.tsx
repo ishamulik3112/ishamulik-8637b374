@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-accent/10 rounded-full animate-glow-pulse" style={{ animationDelay: "3s" }} />
       </div>
 
-      <div className="section-container relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="section-container relative z-10 flex flex-col items-center">
         {/* Text content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
