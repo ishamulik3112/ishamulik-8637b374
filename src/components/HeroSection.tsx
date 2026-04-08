@@ -64,29 +64,4 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Profile image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="relative"
-        >
-          <div className="animate-float">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full glow-border">
-              <img
-                src={profileImg}
-                alt="Isha Mulik"
-                width={512}
-                height={512}
-                className="w-full h-full object-cover rounded-full"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
 export default HeroSection;
