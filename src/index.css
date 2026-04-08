@@ -6,42 +6,37 @@
 
 @layer base {
   :root {
-    --background: 220 20% 4%;
-    --foreground: 210 20% 95%;
+    --background: 240 20% 6%;
+    --foreground: 240 10% 90%;
 
-    --card: 220 20% 8%;
-    --card-foreground: 210 20% 95%;
+    --card: 240 20% 10%;
+    --card-foreground: 240 10% 90%;
 
-    --popover: 220 20% 8%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 240 20% 10%;
+    --popover-foreground: 240 10% 90%;
 
-    --primary: 210 100% 55%;
-    --primary-foreground: 220 20% 4%;
+    --primary: 280 60% 70%;
+    --primary-foreground: 240 20% 6%;
 
-    --secondary: 270 60% 55%;
-    --secondary-foreground: 210 20% 95%;
+    --secondary: 260 40% 20%;
+    --secondary-foreground: 240 10% 90%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 240 15% 15%;
+    --muted-foreground: 240 10% 55%;
 
-    --accent: 185 80% 50%;
-    --accent-foreground: 220 20% 4%;
+    --accent: 280 60% 70%;
+    --accent-foreground: 240 20% 6%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 210 100% 55%;
+    --border: 260 20% 18%;
+    --input: 260 20% 18%;
+    --ring: 280 60% 70%;
 
     --radius: 0.75rem;
 
-    --glow-primary: 210 100% 55%;
-    --glow-secondary: 270 60% 55%;
-    --glow-accent: 185 80% 50%;
-
-    --glass-bg: 220 20% 10%;
-    --glass-border: 220 15% 25%;
+    --glass-border: 260 20% 22%;
   }
 }
 
@@ -53,6 +48,13 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, 
+      hsl(260 30% 8%) 0%, 
+      hsl(270 40% 12%) 30%, 
+      hsl(250 30% 8%) 60%, 
+      hsl(240 25% 6%) 100%
+    );
+    background-attachment: fixed;
   }
 
   html {
@@ -62,8 +64,23 @@
 
 @layer components {
   .glass-card {
-    @apply bg-card/40 backdrop-blur-xl border border-glass-border rounded-xl;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    @apply rounded-xl;
+    background: hsla(260, 20%, 12%, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(260, 20%, 25%, 0.4);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(300 70% 75%), hsl(280 60% 70%), hsl(260 50% 65%));
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
+  }
+
+  .heading-font {
+    font-family: 'Sora', sans-serif;
   }
 
   .glow-border {
@@ -76,25 +93,12 @@
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, hsl(var(--primary) / 0.5), hsl(var(--secondary) / 0.5), hsl(var(--accent) / 0.5));
+    background: linear-gradient(135deg, hsl(280 60% 70% / 0.4), hsl(260 50% 60% / 0.2), transparent);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
-  }
-
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--secondary)));
-  }
-
-  .section-container {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
-  }
-
-  .heading-font {
-    font-family: 'Sora', sans-serif;
   }
 }
 
@@ -102,29 +106,18 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-
-  .animate-glow-pulse {
-    animation: glow-pulse 3s ease-in-out infinite;
-  }
-
-  .animate-gradient-shift {
-    animation: gradient-shift 8s ease infinite;
-    background-size: 200% 200%;
-  }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-10px); }
 }
 
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.5; filter: blur(40px); }
-  50% { opacity: 0.8; filter: blur(60px); }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.typewriter-cursor {
+  animation: blink 1s step-end infinite;
 }

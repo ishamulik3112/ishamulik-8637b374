@@ -6,14 +6,15 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [active, setActive] = useState("Home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -27,28 +28,31 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-card border-b border-glass-border" : "bg-transparent"
+        scrolled ? "glass-card border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <a href="#home" className="text-xl font-bold font-heading text-gradient">
-          Isha.
+        <a href="#home" className="flex items-center gap-2">
+          <span className="w-8 h-8 rounded-md bg-primary/20 border border-primary/30 flex items-center justify-center text-xs font-bold text-primary">IM</span>
+          <span className="font-semibold text-foreground">Isha Mulik</span>
         </a>
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              onClick={() => setActive(link.label)}
+              className={`text-sm px-4 py-2 rounded-lg transition-all duration-200 ${
+                active === link.label
+                  ? "bg-primary/15 text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {link.label}
             </a>
           ))}
         </div>
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
-        >
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-foreground">
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -58,15 +62,17 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-card border-t border-glass-border"
+            className="md:hidden glass-card border-t border-border"
           >
-            <div className="flex flex-col px-4 py-4 gap-4">
+            <div className="flex flex-col px-4 py-4 gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => { setActive(link.label); setMobileOpen(false); }}
+                  className={`text-sm px-4 py-2 rounded-lg transition-colors ${
+                    active === link.label ? "bg-primary/15 text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {link.label}
                 </a>

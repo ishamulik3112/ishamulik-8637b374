@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Mail } from "lucide-react";
+import { Send, Mail, Linkedin, Github, Rocket } from "lucide-react";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -16,70 +16,101 @@ const ContactSection = () => {
   return (
     <section id="contact" className="relative">
       <div className="section-container" ref={ref}>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          className="text-xs text-muted-foreground mb-2 tracking-widest uppercase"
+        >
+          // let's connect
+        </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-bold font-heading text-center mb-16"
+          className="text-3xl sm:text-4xl font-bold font-heading mb-4"
         >
           Get In <span className="text-gradient">Touch</span>
         </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.2 }}
+          className="text-muted-foreground mb-12"
+        >
+          I'm open to new opportunities — feel free to reach out!
+        </motion.p>
 
-        <div className="max-w-xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Contact info */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="flex items-center justify-center gap-2 mb-8 text-muted-foreground"
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.3 }}
+            className="space-y-4"
           >
-            <Mail size={18} className="text-primary" />
-            <a href="mailto:ishamulik2002@gmail.com" className="hover:text-primary transition-colors">
-              ishamulik2002@gmail.com
-            </a>
+            <h3 className="text-lg font-semibold font-heading text-foreground mb-4">Contact Information</h3>
+            {[
+              { icon: Mail, label: "Email", value: "ishamulik2002@gmail.com", href: "mailto:ishamulik2002@gmail.com" },
+              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/isha-mulik", href: "#" },
+              { icon: Github, label: "GitHub", value: "github.com/IshaM", href: "#" },
+            ].map(({ icon: Icon, label, value, href }) => (
+              <a
+                key={label}
+                href={href}
+                className="glass-card p-4 rounded-xl flex items-center gap-4 hover:border-primary/30 transition-all block"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Icon size={18} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground">{label}</p>
+                  <p className="text-sm text-foreground">{value}</p>
+                </div>
+              </a>
+            ))}
+
+            <div className="glass-card p-4 rounded-xl flex items-center gap-3 mt-4">
+              <Rocket size={18} className="text-primary" />
+              <p className="text-xs text-muted-foreground">
+                Currently looking for full-time or internship opportunities in full stack development.
+              </p>
+            </div>
           </motion.div>
 
-          <motion.form
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            onSubmit={handleSubmit}
-            className="glass-card glow-border p-8 rounded-xl space-y-5"
+          {/* Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.4 }}
           >
-            <div>
+            <h3 className="text-lg font-semibold font-heading text-foreground mb-4">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
                 placeholder="Your Name"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
               />
-            </div>
-            <div>
               <input
                 type="email"
-                placeholder="Your Email"
+                placeholder="Email Address"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
               />
-            </div>
-            <div>
               <textarea
                 rows={5}
-                placeholder="Your Message"
+                placeholder="Message"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors resize-none"
               />
-            </div>
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] transition-all duration-300"
-            >
-              {submitted ? "Message Sent! ✓" : (
-                <>
-                  <Send size={16} /> Send Message
-                </>
-              )}
-            </button>
-          </motion.form>
+              <button
+                type="submit"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary/15 text-primary border border-primary/20 font-medium text-sm hover:bg-primary/25 transition-all"
+              >
+                {submitted ? "Message Sent! ✓" : <><Send size={14} /> Send Message</>}
+              </button>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>
