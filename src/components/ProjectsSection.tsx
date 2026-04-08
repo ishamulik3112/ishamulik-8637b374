@@ -7,6 +7,7 @@ import hotelImg from "@/assets/project-hotel.jpg";
 
 const projects = [
   {
+    image: geminiImg,
     title: "Gemini Clone",
     subtitle: "Generative AI Web Application",
     description:
