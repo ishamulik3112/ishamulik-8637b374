@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import profileImg from "@/assets/profile.jpg";
 
 const HeroSection = () => {
   return (
