@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Briefcase, Rocket, Code2, Link } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 const stats = [
   { icon: "🎓", value: "M.Sc.", label: "Postgraduate Degree" },
