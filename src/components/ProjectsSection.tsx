@@ -15,6 +15,7 @@ const projects = [
     tech: ["React.js", "JavaScript", "HTML5", "CSS3", "Gemini API"],
   },
   {
+    image: ecommerceImg,
     title: "E-Commerce Website",
     subtitle: "React Frontend",
     description:
@@ -22,6 +23,7 @@ const projects = [
     tech: ["React.js", "JavaScript", "React Router", "CSS3"],
   },
   {
+    image: hotelImg,
     title: "Hotel Booking App",
     subtitle: "Full Stack Web Application",
     description:
