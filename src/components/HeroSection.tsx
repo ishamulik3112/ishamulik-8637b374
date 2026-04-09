@@ -107,8 +107,8 @@ const HeroSection = () => {
             className="flex items-center gap-3"
           >
             {[
-              { icon: Github, href: "#" },
-              { icon: Linkedin, href: "#" },
+              { icon: Github, href: "https://github.com/ishamulik3112" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/isha-mulik-755493284" },
               { icon: Mail, href: "mailto:ishamulik2002@gmail.com" },
             ].map(({ icon: Icon, href }, i) => (
               <a
