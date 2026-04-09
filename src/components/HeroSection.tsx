@@ -54,7 +54,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight mb-4"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight mb-4"
           >
             Hi, I'm <span className="text-gradient">Isha Mulik</span>
           </motion.h1>
@@ -63,7 +63,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-xl sm:text-2xl font-semibold font-heading text-foreground mb-4 h-8"
+            className="text-lg sm:text-2xl font-semibold font-heading text-foreground mb-4 min-h-[2rem]"
           >
             {displayed}
             <span className="typewriter-cursor text-primary">|</span>
@@ -83,7 +83,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
-            className="flex flex-wrap items-center gap-4 mb-10"
+            className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 mb-10"
           >
             <a
               href="#projects"
