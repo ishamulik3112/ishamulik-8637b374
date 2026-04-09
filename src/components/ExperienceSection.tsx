@@ -3,20 +3,12 @@ import { useRef } from "react";
 
 const experiences = [
   {
-    emoji: "💼",
-    title: "Full Stack Developer",
-    company: "Freelance / Personal Projects",
-    description:
-      "Building scalable web applications using React.js, Node.js, Express.js, and MongoDB. Integrating AI APIs and focusing on clean architecture, responsive design, and performance optimization.",
-    tags: ["React.js", "Node.js", "MongoDB", "REST APIs"],
-  },
-  {
     emoji: "🌐",
-    title: "Web Developer",
-    company: "Academic & Self-Directed Projects",
+    title: "Web Development Intern",
+    company: "Prodigy InfoTech",
     description:
-      "Developed responsive UI components and full-stack applications using modern frameworks. Built e-commerce platforms, AI-powered tools, and booking systems with secure authentication.",
-    tags: ["React.js", "Tailwind CSS", "JavaScript", "AI Integration"],
+      "Worked on web development projects, building responsive and interactive web applications. Gained hands-on experience with modern frontend and backend technologies, collaborating with the team to deliver high-quality solutions.",
+    tags: ["React.js", "Tailwind CSS", "JavaScript", "Web Development"],
   },
 ];
 
