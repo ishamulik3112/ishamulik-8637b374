@@ -41,7 +41,11 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setActive(link.label)}
+              onClick={(e) => {
+                e.preventDefault();
+                setActive(link.label);
+                document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className={`text-sm px-4 py-2 rounded-lg transition-all duration-200 ${
                 active === link.label
                   ? "bg-primary/15 text-primary"
@@ -69,7 +73,7 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => { setActive(link.label); setMobileOpen(false); }}
+                  onClick={(e) => { e.preventDefault(); setActive(link.label); setMobileOpen(false); document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                   className={`text-sm px-4 py-2 rounded-lg transition-colors ${
                     active === link.label ? "bg-primary/15 text-primary" : "text-muted-foreground hover:text-foreground"
                   }`}
