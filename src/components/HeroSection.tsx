@@ -92,10 +92,17 @@ const HeroSection = () => {
               View My Work <ArrowRight size={16} />
             </a>
             <a
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-lg border border-border hover:bg-muted/50 text-foreground transition-all"
+            >
+              <Download size={14} /> Download Resume
+            </a>
+            <a
               href="#contact"
               className="inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-lg border border-border hover:bg-muted/50 text-foreground transition-all"
             >
-              <Download size={14} /> Get In Touch
+              <Mail size={14} /> Get In Touch
             </a>
           </motion.div>
 
