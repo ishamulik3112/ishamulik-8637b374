@@ -51,8 +51,8 @@ const ContactSection = () => {
             <h3 className="text-lg font-semibold font-heading text-foreground mb-4">Contact Information</h3>
             {[
               { icon: Mail, label: "Email", value: "ishamulik2002@gmail.com", href: "mailto:ishamulik2002@gmail.com" },
-              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/isha-mulik", href: "#" },
-              { icon: Github, label: "GitHub", value: "github.com/IshaM", href: "#" },
+              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/isha-mulik-755493284", href: "https://www.linkedin.com/in/isha-mulik-755493284" },
+              { icon: Github, label: "GitHub", value: "github.com/ishamulik3112", href: "https://github.com/ishamulik3112" },
             ].map(({ icon: Icon, label, value, href }) => (
               <a
                 key={label}
