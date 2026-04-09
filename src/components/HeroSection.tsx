@@ -54,7 +54,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight mb-4"
           >
             Hi, I'm <span className="text-gradient">Isha Mulik</span>
           </motion.h1>
@@ -63,7 +63,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-lg sm:text-2xl font-semibold font-heading text-foreground mb-4 min-h-[2rem]"
+            className="text-xl sm:text-2xl font-semibold font-heading text-foreground mb-4 h-8"
           >
             {displayed}
             <span className="typewriter-cursor text-primary">|</span>
@@ -83,7 +83,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
-            className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 mb-10"
+            className="flex flex-wrap items-center gap-4 mb-10"
           >
             <a
               href="#projects"
@@ -92,17 +92,10 @@ const HeroSection = () => {
               View My Work <ArrowRight size={16} />
             </a>
             <a
-              href="/resume.pdf"
-              download
-              className="inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-lg border border-border hover:bg-muted/50 text-foreground transition-all"
-            >
-              <Download size={14} /> Download Resume
-            </a>
-            <a
               href="#contact"
               className="inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-lg border border-border hover:bg-muted/50 text-foreground transition-all"
             >
-              <Mail size={14} /> Get In Touch
+              <Download size={14} /> Get In Touch
             </a>
           </motion.div>
 
