@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+import profileAvatar from "@/assets/profile-avatar.png";
 
 const roles = ["Full Stack Developer", "React Developer", "Backend Developer", "AI Enthusiast"];
 
