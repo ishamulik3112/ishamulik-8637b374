@@ -123,6 +123,23 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
+        {/* Profile Avatar */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="flex-shrink-0"
+        >
+          <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden glow-border glass-card p-1">
+            <img
+              src={profileAvatar}
+              alt="Isha Mulik"
+              width={512}
+              height={512}
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+        </motion.div>
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
