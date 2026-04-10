@@ -41,47 +41,11 @@ const ContactSection = () => {
         </motion.p>
 
         <div className="grid gap-8">
-          {/* Form first */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            className="space-y-4"
-          >
-            <h3 className="text-lg font-semibold font-heading text-foreground mb-4">Contact Information</h3>
-            {[
-              { icon: Mail, label: "Email", value: "ishamulik2002@gmail.com", href: "mailto:ishamulik2002@gmail.com" },
-              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/isha-mulik-755493284", href: "https://www.linkedin.com/in/isha-mulik-755493284" },
-              { icon: Github, label: "GitHub", value: "github.com/ishamulik3112", href: "https://github.com/ishamulik3112" },
-            ].map(({ icon: Icon, label, value, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="glass-card p-4 rounded-xl flex items-center gap-4 hover:border-primary/30 transition-all block"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Icon size={18} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">{label}</p>
-                  <p className="text-sm text-foreground">{value}</p>
-                </div>
-              </a>
-            ))}
-
-            <div className="glass-card p-4 rounded-xl flex items-center gap-3 mt-4">
-              <Rocket size={18} className="text-primary" />
-              <p className="text-xs text-muted-foreground">
-                Currently looking for full-time or internship opportunities in full stack development.
-              </p>
-            </div>
-          </motion.div>
-
           {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.4 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.3 }}
           >
             <h3 className="text-lg font-semibold font-heading text-foreground mb-4">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,6 +74,44 @@ const ContactSection = () => {
                 {submitted ? "Message Sent! ✓" : <><Send size={14} /> Send Message</>}
               </button>
             </form>
+          </motion.div>
+
+          {/* Contact info below */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.4 }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-semibold font-heading text-foreground mb-4">Contact Information</h3>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[
+                { icon: Mail, label: "Email", value: "ishamulik2002@gmail.com", href: "mailto:ishamulik2002@gmail.com" },
+                { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/isha-mulik-755493284", href: "https://www.linkedin.com/in/isha-mulik-755493284" },
+                { icon: Github, label: "GitHub", value: "github.com/ishamulik3112", href: "https://github.com/ishamulik3112" },
+              ].map(({ icon: Icon, label, value, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  className="glass-card p-4 rounded-xl flex items-center gap-4 hover:border-primary/30 transition-all block"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Icon size={18} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">{label}</p>
+                    <p className="text-sm text-foreground">{value}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div className="glass-card p-4 rounded-xl flex items-center gap-3 mt-4">
+              <Rocket size={18} className="text-primary" />
+              <p className="text-xs text-muted-foreground">
+                Currently looking for full-time or internship opportunities in full stack development.
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>
