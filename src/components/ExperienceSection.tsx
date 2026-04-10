@@ -1,6 +1,5 @@
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const experiences = [
   {
@@ -16,7 +15,6 @@ const experiences = [
 const ExperienceSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section id="experience" className="relative">
@@ -38,54 +36,31 @@ const ExperienceSection = () => {
         </motion.h2>
 
         <div className="space-y-6">
-          {experiences.map((exp, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <motion.div
-                key={exp.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: i * 0.2, duration: 0.5 }}
-                className="glass-card glow-border rounded-xl overflow-hidden cursor-pointer"
-                onClick={() => setOpenIndex(isOpen ? null : i)}
-              >
-                <div className="p-6 flex items-center gap-4">
-                  <span className="text-3xl">{exp.emoji}</span>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold font-heading text-foreground">{exp.title}</h3>
-                    <p className="text-sm text-primary">{exp.company}</p>
+          {experiences.map((exp, i) => (
+            <motion.div
+              key={exp.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.2, duration: 0.5 }}
+              className="glass-card glow-border p-6 rounded-xl"
+            >
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">{exp.emoji}</span>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold font-heading text-foreground">{exp.title}</h3>
+                  <p className="text-sm text-primary mb-3">{exp.company}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tags.map((tag) => (
+                      <span key={tag} className="text-[10px] px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                  <ChevronDown
-                    size={20}
-                    className={`text-muted-foreground transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                  />
                 </div>
-
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-6 pb-6 pt-0">
-                        <p className="text-sm text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.tags.map((tag) => (
-                            <span key={tag} className="text-[10px] px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
