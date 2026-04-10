@@ -33,12 +33,12 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="section-container relative z-10 w-full">
+      <div className="section-container relative z-10 w-full flex flex-col lg:flex-row items-center gap-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl"
+          className="max-w-2xl flex-1"
         >
           {/* Available badge */}
           <motion.div
