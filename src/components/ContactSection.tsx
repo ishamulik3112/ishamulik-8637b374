@@ -40,8 +40,8 @@ const ContactSection = () => {
           I'm open to new opportunities — feel free to reach out!
         </motion.p>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Contact info */}
+        <div className="grid gap-8">
+          {/* Form first */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
