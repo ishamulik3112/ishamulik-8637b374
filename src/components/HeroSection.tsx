@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+import profileAvatar from "@/assets/profile-avatar.png";
 
 const roles = ["Full Stack Developer", "React Developer", "Backend Developer", "AI Enthusiast"];
 
@@ -32,12 +33,12 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="section-container relative z-10 w-full">
+      <div className="section-container relative z-10 w-full flex flex-col lg:flex-row items-center gap-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl"
+          className="max-w-2xl flex-1"
         >
           {/* Available badge */}
           <motion.div
@@ -122,6 +123,23 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
+        {/* Profile Avatar */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="flex-shrink-0"
+        >
+          <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden glow-border glass-card p-1">
+            <img
+              src={profileAvatar}
+              alt="Isha Mulik"
+              width={512}
+              height={512}
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+        </motion.div>
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
